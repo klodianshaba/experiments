@@ -1,0 +1,15 @@
+nav {
+  ul {
+    display: flex;
+    padding: 0;
+    ol {
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    ol:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+}
