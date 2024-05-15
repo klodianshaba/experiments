@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterRender, Component, ElementRef, inject } from '@angular/core';
 import { InsightsComponent } from '../../shared/insights/insights.component';
 
 @Component({
@@ -8,4 +8,11 @@ import { InsightsComponent } from '../../shared/insights/insights.component';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  elementRef = inject(ElementRef<HTMLElement>);
+  constructor() {
+    afterRender(() => {
+      this.elementRef.nativeElement.scrollHeight;
+    });
+  }
+}
