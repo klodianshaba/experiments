@@ -20,6 +20,13 @@ import { IfDirective } from '../../directives/if.directive';
 })
 export class DashboardComponent {
   elementRef = inject(ElementRef<HTMLElement>);
+  items = [
+    { id: 1, name: 'Klodian' },
+    { id: 2, name: 'John' },
+    { id: 3, name: 'Clevio' },
+    { id: 4, name: 'Dickerson' },
+    { id: 5, name: 'Marvino' },
+  ];
   constructor() {
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;

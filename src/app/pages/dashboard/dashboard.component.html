@@ -3,14 +3,14 @@
     <div
       appCard
       *appForeach="
-        let item of [1, 2, 3, 4, 5];
+        let item of items;
         empty: emptyTemplate;
         let index = index;
         let first = first;
         let last = last
       ">
       <div>
-        <span *appIf="!first && !last"> {{ item }}</span>
+        <span *appIf="!first && !last"> {{ index }}</span>
         <span *appIf="first"> first</span>
         <span *appIf="last"> last </span>
       </div>
