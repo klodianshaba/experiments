@@ -1,4 +1,5 @@
 <div *appHasPermission="1">
+  <strong>Short hand foreach structural directive</strong> <br /><br />
   <div class="items">
     <div
       appCard
@@ -15,6 +16,24 @@
         <span *appIf="last"> last </span>
       </div>
     </div>
+  </div>
+  <br />
+  <strong>Long form foreach structural directive</strong> <br /><br />
+  <div class="items">
+    <ng-template
+      appForeach
+      let-item
+      let-index="index"
+      let-first="first"
+      let-last="last"
+      [appForeachOf]="items"
+      [appForeachEmpty]="emptyTemplate">
+      <div appCard>
+        <span *appIf="!first && !last"> {{ index }}</span>
+        <span *appIf="first"> first</span>
+        <span *appIf="last"> last </span>
+      </div>
+    </ng-template>
   </div>
 </div>
 <ng-template #emptyTemplate>empty</ng-template>
