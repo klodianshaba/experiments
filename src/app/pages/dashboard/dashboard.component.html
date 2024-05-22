@@ -4,7 +4,7 @@
     <div
       appCard
       *appForeach="
-        let item of items;
+        let item of ItemsStore.items();
         empty: emptyTemplate;
         let index = index;
         let first = first;
@@ -20,13 +20,16 @@
   <br />
   <strong>Long form foreach structural directive</strong> <br /><br />
   <div class="items">
+    <div appCard (click)="add()">
+      <span>Add</span>
+    </div>
     <ng-template
       appForeach
       let-item
       let-index="index"
       let-first="first"
       let-last="last"
-      [appForeachOf]="items"
+      [appForeachOf]="ItemsStore.items()"
       [appForeachEmpty]="emptyTemplate">
       <div appCard>
         <span *appIf="!first && !last"> {{ index }}</span>
@@ -37,6 +40,8 @@
   </div>
 </div>
 <ng-template #emptyTemplate>empty</ng-template>
+<br />
+{{ percentAmount }}
 
 <div class="content"></div>
 

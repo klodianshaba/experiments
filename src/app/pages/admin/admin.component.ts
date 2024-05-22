@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CardDirective } from '../../directives/card.directive';
+import { ItemsStore } from '../../store/items.store';
 
 @Component({
   selector: 'app-admin',
@@ -8,4 +9,6 @@ import { CardDirective } from '../../directives/card.directive';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',
 })
-export class AdminComponent {}
+export class AdminComponent {
+  ItemsStore = inject(ItemsStore);
+}

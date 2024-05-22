@@ -4,7 +4,8 @@ import { HasPermissionDirective } from '../../directives/has-permission.directiv
 import { ForeachDirective } from '../../directives/foreach.directive';
 import { CardDirective } from '../../directives/card.directive';
 import { IfDirective } from '../../directives/if.directive';
-
+import { percentage } from '../../../../../shared/utills';
+import { ItemsStore } from '../../store/items.store';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -20,16 +21,16 @@ import { IfDirective } from '../../directives/if.directive';
 })
 export class DashboardComponent {
   elementRef = inject(ElementRef<HTMLElement>);
-  items = [
-    { id: 1, name: 'Klodian' },
-    { id: 2, name: 'John' },
-    { id: 3, name: 'Clevio' },
-    { id: 4, name: 'Dickerson' },
-    { id: 5, name: 'Marvino' },
-  ];
+  percentAmount: number = 0;
+  ItemsStore = inject(ItemsStore);
   constructor() {
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;
     });
+    this.percentAmount = percentage(30, 28);
+  }
+
+  add() {
+    this.ItemsStore.add({ id: 10, name: Math.random().toString() });
   }
 }
