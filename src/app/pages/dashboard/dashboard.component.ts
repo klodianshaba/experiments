@@ -6,6 +6,7 @@ import { CardDirective } from '../../directives/card.directive';
 import { IfDirective } from '../../directives/if.directive';
 import { percentage } from '../../../../../shared/utills';
 import { ItemsStore } from '../../store/items.store';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -22,15 +23,18 @@ import { ItemsStore } from '../../store/items.store';
 export class DashboardComponent {
   elementRef = inject(ElementRef<HTMLElement>);
   percentAmount: number = 0;
-  ItemsStore = inject(ItemsStore);
+  itemsStore = inject(ItemsStore);
   constructor() {
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;
     });
     this.percentAmount = percentage(30, 28);
+    this.itemsStore.entities();
   }
-
   add() {
-    this.ItemsStore.add({ id: 10, name: Math.random().toString() });
+    this.itemsStore.add({ id: 10, name: Math.random().toString() });
+  }
+  remove(id: number) {
+    this.itemsStore.remove(id);
   }
 }

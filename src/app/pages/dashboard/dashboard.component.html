@@ -4,7 +4,7 @@
     <div
       appCard
       *appForeach="
-        let item of ItemsStore.items();
+        let item of itemsStore.entities();
         empty: emptyTemplate;
         let index = index;
         let first = first;
@@ -29,12 +29,12 @@
       let-index="index"
       let-first="first"
       let-last="last"
-      [appForeachOf]="ItemsStore.items()"
+      [appForeachOf]="itemsStore.entities()"
       [appForeachEmpty]="emptyTemplate">
-      <div appCard>
-        <span *appIf="!first && !last"> {{ index }}</span>
-        <span *appIf="first"> first</span>
-        <span *appIf="last"> last </span>
+      <div appCard (click)="remove(item.id)">
+        <span *appIf="!first && !last"> {{ item.name }}</span>
+        <span *appIf="first"> {{ item.name }}</span>
+        <span *appIf="last"> {{ item.name }} </span>
       </div>
     </ng-template>
   </div>
@@ -42,6 +42,8 @@
 <ng-template #emptyTemplate>empty</ng-template>
 <br />
 {{ percentAmount }}
+
+{{ itemsStore.entities() }}
 
 <div class="content"></div>
 
