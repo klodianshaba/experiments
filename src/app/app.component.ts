@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './shared/nav/nav.component';
-import { TodoStore } from './store/todoStore';
+import { todoStore } from './store/todoStore';
 import { Todos } from './datasource/todo-datasource';
 
 @Component({
@@ -10,11 +10,11 @@ import { Todos } from './datasource/todo-datasource';
   imports: [RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [TodoStore],
+  providers: [todoStore],
 })
 export class AppComponent {
   title = 'experiments';
-  todoStore = inject(TodoStore);
+  todoStore = inject(todoStore);
   constructor() {
     this.todoStore.setAll(Todos);
   }

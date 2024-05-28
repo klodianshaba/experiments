@@ -11,7 +11,7 @@ import { ForeachDirective } from '../../directives/foreach.directive';
 import { CardDirective } from '../../directives/card.directive';
 import { IfDirective } from '../../directives/if.directive';
 import { percentage } from '../../../../../shared/utills';
-import { TodoStore } from '../../store/todoStore';
+import { todoStore } from '../../store/todoStore';
 import { Todos } from '../../datasource/todo-datasource';
 import { TodoModel } from '../../models/todoModel';
 
@@ -31,7 +31,7 @@ import { TodoModel } from '../../models/todoModel';
 export class DashboardComponent {
   elementRef = inject(ElementRef<HTMLElement>);
   percentAmount: number = 0;
-  todoStore = inject(TodoStore);
+  todoStore = inject(todoStore);
   constructor() {
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;

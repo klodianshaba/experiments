@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CardDirective } from '../../directives/card.directive';
-import { TodoStore } from '../../store/todoStore';
+import { todoStore } from '../../store/todoStore';
 
 @Component({
   selector: 'app-admin',
@@ -10,5 +10,5 @@ import { TodoStore } from '../../store/todoStore';
   styleUrl: './admin.component.scss',
 })
 export class AdminComponent {
-  todoStore = inject(TodoStore);
+  todoStore = inject(todoStore);
 }

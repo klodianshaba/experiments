@@ -23,9 +23,9 @@ import {
 } from '@ngrx/signals/entities';
 import { EntityId, EntitySignals } from '@ngrx/signals/entities/src/models';
 
-export function entityMethods<T extends { id: EntityId }>(
+export const entityMethods = <T extends { id: EntityId }>(
   store: StateSignal<object> & EntitySignals<T>
-) {
+) => {
   return {
     set(entity: T) {
       patchState(store, setEntity(entity));
@@ -90,15 +90,39 @@ export function entityMethods<T extends { id: EntityId }>(
       );
     },
   };
-}
+};
 
-export function entityComputed<T>(store: EntitySignals<T>) {
+export const entityComputed = <T>(store: EntitySignals<T>) => {
   return {
     count: computed(() => store.entities().length),
   };
-}
+};
 
-export const TodoStore = signalStore(
+export const todo: TodoModel = {
+  id: Math.random(),
+  name: Math.random().toString(),
+  done: false,
+  active: true,
+};
+export const todos: TodoModel[] = [
+  {
+    id: Math.random(),
+    name: Math.random().toString(),
+    done: false,
+    active: true,
+  },
+  {
+    id: Math.random(),
+    name: Math.random().toString(),
+    done: false,
+    active: true,
+  },
+];
+export const id: number = 1;
+export const ids: number[] = [1, 2];
+export const todoPartial: Partial<TodoModel> = {};
+
+export const todoStore = signalStore(
   withEntities<TodoModel>(),
   withComputed(store => entityComputed<TodoModel>(store)),
   withMethods(store => entityMethods<TodoModel>(store))

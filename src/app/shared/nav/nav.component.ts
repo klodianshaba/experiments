@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TodoStore } from '../../store/todoStore';
+import { todoStore } from '../../store/todoStore';
 
 @Component({
   selector: 'app-nav',
@@ -10,5 +10,5 @@ import { TodoStore } from '../../store/todoStore';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
-  todoStore = inject(TodoStore);
+  todoStore = inject(todoStore);
 }
