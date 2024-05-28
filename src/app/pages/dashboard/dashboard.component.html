@@ -4,7 +4,7 @@
     <div
       appCard
       *appForeach="
-        let item of itemsStore.entities();
+        let item of todoStore.entities();
         empty: emptyTemplate;
         let index = index;
         let first = first;
@@ -20,18 +20,15 @@
   <br />
   <strong>Long form foreach structural directive</strong> <br /><br />
   <div class="items">
-    <div appCard (click)="add()">
-      <span>Add</span>
-    </div>
     <ng-template
       appForeach
       let-item
       let-index="index"
       let-first="first"
       let-last="last"
-      [appForeachOf]="itemsStore.entities()"
+      [appForeachOf]="todoStore.entities()"
       [appForeachEmpty]="emptyTemplate">
-      <div appCard (click)="remove(item.id)">
+      <div appCard>
         <span *appIf="!first && !last"> {{ item.name }}</span>
         <span *appIf="first"> {{ item.name }}</span>
         <span *appIf="last"> {{ item.name }} </span>
@@ -41,9 +38,27 @@
 </div>
 <ng-template #emptyTemplate>empty</ng-template>
 <br />
-{{ percentAmount }}
 
-{{ itemsStore.entities() }}
+<button (click)="set()">Set</button>
+<button (click)="setMany()">Set many</button>
+<button (click)="setAll()">Set all</button>
+<br /><br />
+
+<button (click)="add()">Add</button>
+<button (click)="addMany()">Add many</button>
+<br /><br />
+
+<button (click)="update()">Update</button>
+<button (click)="updateMany()">Update many</button>
+<button (click)="updateAll()">Update all</button>
+<button (click)="updatePredicate()">Update predicate</button>
+<br /><br />
+
+<button (click)="remove()">Remove</button>
+<button (click)="removeMany()">Remove many</button>
+<button (click)="removeAll()">Remove all</button>
+<button (click)="removePredicate()">Remove predicate</button>
+<br /><br />
 
 <div class="content"></div>
 
