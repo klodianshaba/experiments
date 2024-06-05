@@ -4,6 +4,7 @@ import {
   effect,
   ElementRef,
   inject,
+  untracked,
 } from '@angular/core';
 import { InsightsComponent } from '../../shared/insights/insights.component';
 import { HasPermissionDirective } from '../../directives/has-permission.directive';
@@ -32,6 +33,7 @@ export class DashboardComponent {
   elementRef = inject(ElementRef<HTMLElement>);
   percentAmount: number = 0;
   todoStore = inject(todoStore);
+  user = 'Klodian Shaba';
   constructor() {
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;
@@ -40,7 +42,9 @@ export class DashboardComponent {
     effect(() => {
       console.log(this.todoStore.select(1)());
       console.log(this.todoStore.selectMany([1, 2])());
-      console.log(this.todoStore.selectPredicate(entity => entity.done)());
+      untracked(() => {
+        console.log(this.todoStore.selectPredicate(entity => entity.done)());
+      });
     });
   }
   //set

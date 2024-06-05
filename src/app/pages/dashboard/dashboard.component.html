@@ -63,7 +63,7 @@
 <div class="content"></div>
 
 @defer (on viewport) {
-  <app-insights />
+  <app-insights [(user)]="user" />
 } @placeholder (minimum 500ms) {
   <p>Placeholder insights</p>
 } @loading (minimum 1s) {
