@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-insights',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './insights.component.html',
   styleUrl: './insights.component.scss',
 })
-export class InsightsComponent {}
+export class InsightsComponent {
+  user = input.required<string>();
+  userChange = output<string>();
+  constructor() {}
+
+  onChange() {
+    this.userChange.emit(this.user() + ' Changed');
+  }
+}
