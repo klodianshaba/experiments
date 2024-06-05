@@ -19,9 +19,9 @@ export const todoStore = signalStore(
 );
 
 export class Component {
-  todoStore = inject(todoStore); // injecting todo store
+  todoStore = inject(todoStore);
 
-  manipulating() {
+  methods() {
     this.todoStore.set(todo); // set one entity
     this.todoStore.setMany(todos); // set many entities
     this.todoStore.setAll(todos); // set all entities
@@ -37,7 +37,7 @@ export class Component {
     this.todoStore.removePredicate(todo => todo.done); // remove predicate entities
   }
 
-  selecting() {
+  selectors() {
     this.todoStore.entities(); // get all entities
     this.todoStore.count(); // get count
     this.todoStore.ids(); // get ids
