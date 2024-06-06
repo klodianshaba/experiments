@@ -60,10 +60,10 @@
 <button (click)="removePredicate()">Remove predicate</button>
 <br /><br />
 
-<div class="content"></div>
-
 @defer (on viewport) {
-  <app-insights [(user)]="user" />
+  <div style="padding: 1rem">
+    <app-insights [(user)]="user" />
+  </div>
 } @placeholder (minimum 500ms) {
   <p>Placeholder insights</p>
 } @loading (minimum 1s) {

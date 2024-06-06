@@ -1,0 +1,66 @@
+.container {
+  padding: 1rem;
+  position: relative;
+  max-width: 200px;
+  .content {
+    border: 1px solid rgb(218, 4, 218);
+    border-radius: 5px;
+    @extend .container;
+  }
+  .line {
+    position: absolute;
+    background: linear-gradient(180deg, rgb(241, 9, 9), rgb(218, 4, 218));
+  }
+  .line-top {
+    height: 1px;
+    top: 0;
+    left: -2rem;
+    right: -2rem;
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+  }
+  .line-bottom {
+    height: 1px;
+    bottom: 0;
+    left: -2rem;
+    right: -2rem;
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+  }
+  .line-left {
+    width: 1px;
+    left: 0;
+    top: -2rem;
+    bottom: -2rem;
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+  }
+  .line-right {
+    width: 1px;
+    right: 0;
+    top: -2rem;
+    bottom: -2rem;
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+  }
+}
