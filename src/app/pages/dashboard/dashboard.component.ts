@@ -15,6 +15,7 @@ import { percentage } from '../../../../../shared/utills';
 import { todoStore } from '../../store/todoStore';
 import { Todos } from '../../datasource/todo-datasource';
 import { TodoModel } from '../../models/todoModel';
+import { asyncCall } from '../../common/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +47,7 @@ export class DashboardComponent {
         console.log(this.todoStore.selectPredicate(entity => entity.done)());
       });
     });
+    asyncCall().then();
   }
   //set
   set() {
