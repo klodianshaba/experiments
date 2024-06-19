@@ -1,5 +1,5 @@
 <div *appHasPermission="1">
-  <strong>Short hand foreach structural directive</strong> <br /><br />
+  <strong i18n>Short hand foreach structural directive</strong> <br /><br />
   <div class="items">
     <div
       appCard
@@ -18,7 +18,7 @@
     </div>
   </div>
   <br />
-  <strong>Long form foreach structural directive</strong> <br /><br />
+  <strong i18n>Long form foreach structural directive</strong> <br /><br />
   <div class="items">
     <ng-template
       appForeach
@@ -39,9 +39,9 @@
 <ng-template #emptyTemplate>empty</ng-template>
 <br />
 
-<button (click)="set()">Set</button>
-<button (click)="setMany()">Set many</button>
-<button (click)="setAll()">Set all</button>
+<button (click)="set()" i18n>Set</button>
+<button (click)="setMany()" i18n>Set many</button>
+<button (click)="setAll()" i18n>Set all</button>
 <br /><br />
 
 <button (click)="add()">Add</button>
