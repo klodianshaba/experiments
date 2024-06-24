@@ -35,9 +35,8 @@ export class DashboardComponent {
   percentAmount: number = 0;
   todoStore = inject(todoStore);
   user = 'Klodian Shaba';
-  title = 'Dashboard';
+  title = $localize`Dashboard`;
   constructor() {
-    $localize`${this.title}`;
     afterRender(() => {
       this.elementRef.nativeElement.scrollHeight;
     });
