@@ -1,15 +1,22 @@
 <nav>
   <ul>
-    <ol routerLink="/dashboard">
-      Dashboard
-    </ol>
-    <ol routerLink="/admin">
-      Admin
+    <ol>
+      <a
+        href="javascript:"
+        routerLink="/dashboard"
+        routerLinkActive
+        ariaCurrentWhenActive="page"
+        >Dashboard</a
+      >
     </ol>
     <ol>
-      {{
-        todoStore.count()
-      }}
+      <a
+        href="javascript:"
+        routerLink="/admin"
+        routerLinkActive
+        ariaCurrentWhenActive="page"
+        >Admin</a
+      >
     </ol>
   </ul>
 </nav>

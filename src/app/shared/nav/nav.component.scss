@@ -3,13 +3,23 @@ nav {
     display: flex;
     padding: 0;
     ol {
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
+      a {
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      a[aria-current='page'] {
+        background-color: blue;
+        color: white;
+      }
+      a:hover {
+        background-color: red;
+        color: white;
+      }
     }
-    ol:hover {
-      background-color: red;
-      color: white;
+    ol:has(> a) {
+      padding: 0;
     }
   }
 }
